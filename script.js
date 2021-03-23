@@ -62,7 +62,8 @@ function createMouse() {
 }
 
 createMouse();
-//done
+
+
 let direction = 'right';
 let steps = false;
 
@@ -88,7 +89,7 @@ function move() {
   snakeBody[0].classList.remove('head');
   snakeBody[snakeBody.length-1].classList.remove('snakeBody');
   snakeBody.pop();
-//
+
   if(direction == 'right') {
     if(snakeCoordinates[0] < 10){
       snakeBody.unshift(document.querySelector('[posX = "' + (+snakeCoordinates[0] + 1) + '"][posY = "' + snakeCoordinates[1] + '"]'));
@@ -115,7 +116,7 @@ function move() {
       snakeBody.unshift(document.querySelector('[posX = "' + snakeCoordinates[0] + '"][posY = "10"]'));
     }
   }
-//ПРОВЕРИЛА
+
   if (snakeBody[0].getAttribute('posX') == mouse.getAttribute('posX') && snakeBody[0].getAttribute('posY') == mouse.getAttribute('posY')) {
     mouse.classList.remove('mouse');
     let a = snakeBody[snakeBody.length - 1].getAttribute('posX');
@@ -125,7 +126,7 @@ function move() {
     score++;
     input.value = `your score ${score}`;
   }
-//
+
   if (snakeBody[0].classList.contains('snakeBody')) {
    
     setTimeout(()=> {
@@ -136,17 +137,14 @@ function move() {
     snakeBody[0].style.backgroundSize = 'cover';
   }
 
-// ПРОВЕРИЛА
     snakeBody[0].classList.add('head');
     for(let i = 0; i < snakeBody.length; i++) {
       snakeBody[i].classList.add('snakeBody');
     }
-//
+
     steps = true;
 
 }
-
-
 
 let interval = setInterval(move, 300);
 
